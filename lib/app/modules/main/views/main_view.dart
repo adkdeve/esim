@@ -16,9 +16,12 @@ class MainView extends GetView<MainController> {
         children: [
           // 1. The Screen Content
           // We use a SizedBox.expand to ensure the background fills the screen
-          SizedBox.expand(
-            child: Obx(
-              () => controller.screens[controller.selectedIndex.value],
+          NotificationListener<ScrollNotification>(
+            onNotification: controller.handleScroll,
+            child: SizedBox.expand(
+              child: Obx(
+                () => controller.screens[controller.selectedIndex.value],
+              ),
             ),
           ),
 
@@ -30,6 +33,8 @@ class MainView extends GetView<MainController> {
             child: Obx(
               () => CustomBottomNav(
                 selectedIndex: controller.selectedIndex.value,
+                width: controller.navWidth.value,
+                height: controller.navHeight.value,
                 onTap: (index) {
                   controller.selectedIndex.value = index;
                 },

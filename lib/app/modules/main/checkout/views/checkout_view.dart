@@ -16,10 +16,6 @@ class CheckoutView extends GetView<CheckoutController> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Get.back(),
-        ),
         title: const Text(
           "Checkout",
           style: TextStyle(
@@ -46,6 +42,9 @@ class CheckoutView extends GetView<CheckoutController> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Color(0xFF483073).withOpacity(0.1),
+                      ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.05),
@@ -53,14 +52,17 @@ class CheckoutView extends GetView<CheckoutController> {
                           offset: const Offset(0, 4),
                         ),
                       ],
-                      border: Border.all(color: Colors.grey.shade100),
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
                           "Global",
-                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.black87,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
                         const SizedBox(height: 4),
                         const Text(
@@ -92,9 +94,7 @@ class CheckoutView extends GetView<CheckoutController> {
                             color: Colors.grey[600],
                           ),
                         ),
-                        const SizedBox(height: 16),
-                        const Divider(),
-                        const SizedBox(height: 12),
+                        const Divider(color: Colors.grey),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -250,13 +250,13 @@ class CheckoutView extends GetView<CheckoutController> {
                   // Confirm Button
                   SizedBox(
                     width: double.infinity,
-                    height: 56,
+                    height: 50,
                     child: ElevatedButton(
                       onPressed: controller.confirmSubscription,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: deepPurple,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(20),
                         ),
                         elevation: 0,
                       ),
@@ -331,14 +331,18 @@ class CheckoutView extends GetView<CheckoutController> {
     return Row(
       children: [
         Container(
-          height: 36,
-          width: 36,
+          height: 30,
+          width: 30,
           decoration: BoxDecoration(
             // Light purple circle background
-            color: deepPurple.withOpacity(0.08),
+            color: Color(0xffE0E7FF),
             shape: BoxShape.circle,
           ),
-          child: Icon(icon, size: 18, color: deepPurple), // Icon matches theme
+          child: Icon(
+            icon,
+            size: 18,
+            color: Color(0xff483073),
+          ), // Icon matches theme
         ),
         const SizedBox(width: 12),
         Text(
@@ -346,7 +350,7 @@ class CheckoutView extends GetView<CheckoutController> {
           style: const TextStyle(
             fontSize: 14,
             color: Color(0xFF49454F),
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w900,
           ),
         ),
       ],

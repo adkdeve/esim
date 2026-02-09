@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../../../common/widgets/build_image.dart';
 import '../controllers/esim_installation_controller.dart';
 
 class EsimInstallationView extends GetView<EsimInstallationController> {
-  const EsimInstallationView({Key? key}) : super(key: key);
+  const EsimInstallationView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +19,6 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Get.back(),
-        ),
         title: const Text(
           "eSIM Installation",
           style: TextStyle(
@@ -122,27 +119,9 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                     }),
 
                     // --- 2. HERO GRAPHIC ---
-                    SizedBox(
-                      height: 140,
-                      width: 140,
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            height: 100,
-                            width: 80,
-                            decoration: BoxDecoration(
-                              color: Colors.blue.shade50,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                          ),
-                          const Icon(
-                            Icons.install_mobile,
-                            size: 80,
-                            color: Colors.blueAccent,
-                          ),
-                        ],
-                      ),
+                    buildImage(
+                      "assets/images/esim_installation.png",
+                      context: context,
                     ),
 
                     const SizedBox(height: 32),

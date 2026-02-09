@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../../../common/widgets/build_image.dart';
 import '../../../../routes/app_pages.dart';
 
 class EsimSuccessView extends StatelessWidget {
-  const EsimSuccessView({Key? key}) : super(key: key);
+  const EsimSuccessView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class EsimSuccessView extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.close, color: Colors.black),
-          onPressed: () => Get.offAllNamed(Routes.HOME), // Close to home
+          onPressed: () => Get.offAllNamed(Routes.MAIN), // Close to home
         ),
       ),
       body: Padding(
@@ -30,6 +31,8 @@ class EsimSuccessView extends StatelessWidget {
                 child: Column(
                   children: [
                     const SizedBox(height: 40),
+
+                    buildImage("assets/images/success.png", context: context),
 
                     // --- 1. SUCCESS HEADER ---
                     const Text(
@@ -102,7 +105,7 @@ class EsimSuccessView extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       // Navigate back to the main dashboard/home
-                      Get.offAllNamed(Routes.HOME);
+                      Get.offAllNamed(Routes.MAIN);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: deepPurple,

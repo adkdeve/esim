@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProfileView extends GetView<ProfileController> {
-  const ProfileView({Key? key}) : super(key: key);
+  const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,6 @@ class ProfileView extends GetView<ProfileController> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Get.back(),
-        ),
         title: const Text(
           "Account",
           style: TextStyle(
@@ -218,7 +214,7 @@ class ProfileView extends GetView<ProfileController> {
             ),
 
             // Extra padding for safe area
-            const SizedBox(height: 20),
+            const SizedBox(height: 80),
           ],
         ),
       ),

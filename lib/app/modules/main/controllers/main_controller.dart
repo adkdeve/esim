@@ -19,6 +19,12 @@ import '../../../data/services/auth_service.dart';
 class MainController extends GetxController {
   RxInt selectedIndex = 0.obs;
   var scaffoldKey = GlobalKey<ScaffoldState>();
+  final double minNavWidth = 140;
+  final double maxNavWidth = 260;
+  final double minNavHeight = 44;
+  final double maxNavHeight = 64;
+  final RxDouble navWidth = 260.0.obs;
+  final RxDouble navHeight = 64.0.obs;
   final myRepo = Get.find<Repository>();
   final logger = Get.find<Logger>();
   final storage = Get.find<FlutterSecureStorage>();
@@ -34,7 +40,7 @@ class MainController extends GetxController {
   @override
   Future<void> onInit() async {
     super.onInit();
-    loadUserData();
+    // loadUserData();
   }
 
   Future<void> loadUserData() async {
@@ -98,4 +104,33 @@ class MainController extends GetxController {
       builder: (_) => const ProfileView(),
     ),
   ];
+
+  bool handleScroll(ScrollNotification notification) {
+    if (notification is! ScrollUpdateNotification) {
+      return false;
+    }
+    if (notification.metrics.axis != Axis.vertical) {
+      return false;
+    }
+    final double delta = notification.scrollDelta ?? 0;
+    if (delta == 0) {
+      return false;
+    }
+
+    final double nextWidth = (navWidth.value - (delta * 0.4)).clamp(
+      minNavWidth,
+      maxNavWidth,
+    );
+    final double nextHeight = (navHeight.value - (delta * 0.2)).clamp(
+      minNavHeight,
+      maxNavHeight,
+    );
+    if (nextWidth != navWidth.value) {
+      navWidth.value = nextWidth;
+    }
+    if (nextHeight != navHeight.value) {
+      navHeight.value = nextHeight;
+    }
+    return false;
+  }
 }
