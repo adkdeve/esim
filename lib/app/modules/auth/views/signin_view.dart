@@ -12,14 +12,14 @@ class SigninView extends GetView<SigninController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: R.theme.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: R.theme.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         centerTitle: true,
         title: MyText(
           text: 'Sign in',
-          color: Colors.black,
+          color: AppColors.black,
           fontWeight: FontWeight.bold,
           fontSize: 18,
         ),
@@ -35,7 +35,7 @@ class SigninView extends GetView<SigninController> {
               text: 'Welcome Back',
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.black87,
             ),
 
             8.sbh,
@@ -44,7 +44,7 @@ class SigninView extends GetView<SigninController> {
               text:
                   'Sign In To Manage Your Global ESIM Plans And Cellular Services.',
               fontSize: 14,
-              color: R.theme.grey,
+              color: AppColors.grey,
               height: 1.5,
               softWrap: true,
               textAlign: TextAlign.start,
@@ -70,7 +70,7 @@ class SigninView extends GetView<SigninController> {
                     controller.isPasswordVisible.value
                         ? Icons.visibility
                         : Icons.visibility_off,
-                    color: Colors.grey,
+                    color: AppColors.grey,
                   ),
                   onPressed: controller.togglePasswordVisibility,
                 ),
@@ -85,7 +85,7 @@ class SigninView extends GetView<SigninController> {
                 },
                 child: MyText(
                   text: 'Forgot Password?',
-                  color: R.theme.grey,
+                  color: AppColors.grey,
                   fontSize: 14,
                 ),
               ),
@@ -101,10 +101,9 @@ class SigninView extends GetView<SigninController> {
                 child: ElevatedButton(
                   onPressed: canSubmit ? controller.login : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF4A3277),
-                    disabledBackgroundColor: const Color(
-                      0xFF4A3277,
-                    ).withOpacity(0.5),
+                    backgroundColor: AppColors.brandPurple,
+                    disabledBackgroundColor:
+                        AppColors.brandPurple.withOpacity(0.5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
@@ -112,7 +111,7 @@ class SigninView extends GetView<SigninController> {
                   child: MyText(
                     text: 'Login',
                     fontSize: 18,
-                    color: Colors.white,
+                    color: AppColors.white,
                   ),
                 ),
               );
@@ -127,9 +126,9 @@ class SigninView extends GetView<SigninController> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _socialButton(Icons.facebook, Colors.blue),
-                _socialButton(Icons.g_mobiledata, Colors.red, isGoogle: true),
-                _socialButton(Icons.apple, Colors.black),
+                _socialButton(Icons.facebook, AppColors.blue),
+                _socialButton(Icons.g_mobiledata, AppColors.red, isGoogle: true),
+                _socialButton(Icons.apple, AppColors.black),
               ],
             ),
           ],
@@ -141,12 +140,12 @@ class SigninView extends GetView<SigninController> {
   Widget _buildDivider() {
     return Row(
       children: [
-        const Expanded(child: Divider(color: Color(0xFFE8ECF4))),
+        const Expanded(child: Divider(color: AppColors.dividerLight)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Text('Or Login with', style: TextStyle(color: R.theme.grey)),
+          child: Text('Or Login with', style: TextStyle(color: AppColors.grey)),
         ),
-        const Expanded(child: Divider(color: Color(0xFFE8ECF4))),
+        const Expanded(child: Divider(color: AppColors.dividerLight)),
       ],
     );
   }
@@ -156,7 +155,7 @@ class SigninView extends GetView<SigninController> {
       width: 100,
       height: 55,
       decoration: BoxDecoration(
-        border: Border.all(color: const Color(0xFFE8ECF4)),
+        border: Border.all(color: AppColors.dividerLight),
         borderRadius: BorderRadius.circular(12),
       ),
       child: Icon(icon, color: color, size: 30),

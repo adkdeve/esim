@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/core.dart';
 import '../controllers/checkout_controller.dart';
 
 class CheckoutView extends GetView<CheckoutController> {
@@ -8,18 +9,18 @@ class CheckoutView extends GetView<CheckoutController> {
 
   @override
   Widget build(BuildContext context) {
-    const Color deepPurple = Color(0xFF4A3277);
-    const Color bgGrey = Color(0xFFF9F9F9);
+    const Color deepPurple = AppColors.brandPurple;
+    const Color bgGrey = AppColors.backgroundAlt;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         title: const Text(
           "Checkout",
           style: TextStyle(
-            color: Colors.black,
+            color: AppColors.black,
             fontWeight: FontWeight.w700,
             fontSize: 18,
           ),
@@ -40,14 +41,14 @@ class CheckoutView extends GetView<CheckoutController> {
                     width: double.infinity,
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.white,
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                        color: Color(0xFF483073).withOpacity(0.1),
+                        color: AppColors.brandPurpleDark.withOpacity(0.1),
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.05),
+                          color: AppColors.black.withOpacity(0.05),
                           blurRadius: 15,
                           offset: const Offset(0, 4),
                         ),
@@ -60,7 +61,7 @@ class CheckoutView extends GetView<CheckoutController> {
                           "Global",
                           style: TextStyle(
                             fontSize: 12,
-                            color: Colors.black87,
+                            color: AppColors.black87,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -91,10 +92,10 @@ class CheckoutView extends GetView<CheckoutController> {
                           style: TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
-                            color: Colors.grey[600],
+                            color: AppColors.grey600,
                           ),
                         ),
-                        const Divider(color: Colors.grey),
+                        const Divider(color: AppColors.grey),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -105,7 +106,7 @@ class CheckoutView extends GetView<CheckoutController> {
                                   "Renewal Date",
                                   style: TextStyle(
                                     fontSize: 12,
-                                    color: Colors.grey,
+                                    color: AppColors.grey,
                                   ),
                                 ),
                                 const SizedBox(height: 4),
@@ -114,7 +115,7 @@ class CheckoutView extends GetView<CheckoutController> {
                                   style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
-                                    color: Colors.grey[800],
+                                    color: AppColors.grey800,
                                   ),
                                 ),
                               ],
@@ -143,7 +144,7 @@ class CheckoutView extends GetView<CheckoutController> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: AppColors.black,
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -156,14 +157,14 @@ class CheckoutView extends GetView<CheckoutController> {
                           index: 0,
                           icon: Icons.apple,
                           label: "Apple pay",
-                          iconColor: Colors.black,
+                          iconColor: AppColors.black,
                         ),
                         const SizedBox(height: 12),
                         _buildPaymentOption(
                           index: 1,
                           icon: Icons.payment,
                           label: "Google Pay",
-                          iconColor: Colors.blue,
+                          iconColor: AppColors.blue,
                         ),
                         const SizedBox(height: 12),
                         _buildPaymentOption(
@@ -171,7 +172,7 @@ class CheckoutView extends GetView<CheckoutController> {
                           icon: Icons.credit_card,
                           label: ".......4242",
                           subLabel: "EXPIRES 12/26",
-                          iconColor: Colors.blueAccent,
+                          iconColor: AppColors.blueAccent,
                         ),
                       ],
                     ),
@@ -187,7 +188,7 @@ class CheckoutView extends GetView<CheckoutController> {
                       color: bgGrey,
                       borderRadius: BorderRadius.circular(12),
                       border: Border.all(
-                        color: Colors.grey.shade400,
+                        color: AppColors.grey400,
                         style: BorderStyle.solid,
                         width: 1,
                       ),
@@ -195,7 +196,7 @@ class CheckoutView extends GetView<CheckoutController> {
                     alignment: Alignment.center,
                     child: Text(
                       "Add New Payment Getaway",
-                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                      style: TextStyle(color: AppColors.grey600, fontSize: 14),
                     ),
                   ),
                 ],
@@ -207,10 +208,10 @@ class CheckoutView extends GetView<CheckoutController> {
           Container(
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: AppColors.white,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: AppColors.black.withOpacity(0.05),
                   blurRadius: 10,
                   offset: const Offset(0, -5),
                 ),
@@ -222,7 +223,7 @@ class CheckoutView extends GetView<CheckoutController> {
                 children: [
                   const Text(
                     "Total To Pay Today",
-                    style: TextStyle(fontSize: 14, color: Colors.black87),
+                    style: TextStyle(fontSize: 14, color: AppColors.black87),
                   ),
                   const SizedBox(height: 4),
                   RichText(
@@ -239,7 +240,7 @@ class CheckoutView extends GetView<CheckoutController> {
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                            color: Colors.grey,
+                            color: AppColors.grey,
                           ),
                         ),
                       ],
@@ -268,14 +269,14 @@ class CheckoutView extends GetView<CheckoutController> {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                              color: AppColors.white,
                             ),
                           ),
                           SizedBox(width: 8),
                           Icon(
                             Icons.arrow_forward,
                             size: 20,
-                            color: Colors.white,
+                            color: AppColors.white,
                           ),
                         ],
                       ),
@@ -290,7 +291,7 @@ class CheckoutView extends GetView<CheckoutController> {
                       text: TextSpan(
                         style: const TextStyle(
                           fontSize: 11,
-                          color: Colors.grey,
+                          color: AppColors.grey,
                           height: 1.4,
                           fontFamily: 'Roboto',
                         ),
@@ -326,7 +327,7 @@ class CheckoutView extends GetView<CheckoutController> {
 
   // --- UPDATED HELPER WIDGET FOR ICONS ---
   Widget _buildFeatureRow(IconData icon, String text) {
-    const Color deepPurple = Color(0xFF4A3277);
+    const Color deepPurple = AppColors.brandPurple;
 
     return Row(
       children: [
@@ -335,13 +336,13 @@ class CheckoutView extends GetView<CheckoutController> {
           width: 30,
           decoration: BoxDecoration(
             // Light purple circle background
-            color: Color(0xffE0E7FF),
+            color: AppColors.lavenderPale,
             shape: BoxShape.circle,
           ),
           child: Icon(
             icon,
             size: 18,
-            color: Color(0xff483073),
+            color: AppColors.brandPurpleDark,
           ), // Icon matches theme
         ),
         const SizedBox(width: 12),
@@ -349,7 +350,7 @@ class CheckoutView extends GetView<CheckoutController> {
           text,
           style: const TextStyle(
             fontSize: 14,
-            color: Color(0xFF49454F),
+            color: AppColors.textMuted,
             fontWeight: FontWeight.w900,
           ),
         ),
@@ -365,18 +366,18 @@ class CheckoutView extends GetView<CheckoutController> {
     String? subLabel,
   }) {
     bool isSelected = controller.selectedPaymentMethod.value == index;
-    const Color deepPurple = Color(0xFF4A3277);
+    const Color deepPurple = AppColors.brandPurple;
 
     return GestureDetector(
       onTap: () => controller.selectPaymentMethod(index),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
-          color: const Color(0xFFF5F5F5),
+          color: AppColors.grey100,
           borderRadius: BorderRadius.circular(12),
           border: isSelected
               ? Border.all(color: deepPurple, width: 1.5)
-              : Border.all(color: Colors.transparent),
+              : Border.all(color: AppColors.transparent),
         ),
         child: Row(
           children: [
@@ -390,13 +391,13 @@ class CheckoutView extends GetView<CheckoutController> {
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
-                    color: Colors.black87,
+                    color: AppColors.black87,
                   ),
                 ),
                 if (subLabel != null)
                   Text(
                     subLabel,
-                    style: TextStyle(fontSize: 11, color: Colors.grey[600]),
+                    style: TextStyle(fontSize: 11, color: AppColors.grey600),
                   ),
               ],
             ),
@@ -407,7 +408,7 @@ class CheckoutView extends GetView<CheckoutController> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isSelected ? deepPurple : Colors.grey,
+                  color: isSelected ? deepPurple : AppColors.grey,
                   width: 2,
                 ),
               ),
@@ -440,12 +441,12 @@ class TermsView extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Terms of Service",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: AppColors.black),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         elevation: 1,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: AppColors.black),
           onPressed: () => Get.back(),
         ),
       ),

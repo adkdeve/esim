@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../common/widgets/build_image.dart';
+import '../../../../core/core.dart';
 import '../../../../routes/app_pages.dart';
 
 class EsimSuccessView extends StatelessWidget {
@@ -9,16 +10,16 @@ class EsimSuccessView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const Color deepPurple = Color(0xFF4A3277);
-    const Color textGrey = Color(0xFF757575);
+    const Color deepPurple = AppColors.brandPurple;
+    const Color textGrey = AppColors.textGrey;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.close, color: Colors.black),
+          icon: const Icon(Icons.close, color: AppColors.black),
           onPressed: () => Get.offAllNamed(Routes.MAIN), // Close to home
         ),
       ),
@@ -40,7 +41,7 @@ class EsimSuccessView extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                        color: AppColors.black,
                       ),
                     ),
                     const SizedBox(height: 16),
@@ -64,7 +65,7 @@ class EsimSuccessView extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w600,
-                          color: Colors.grey[600],
+                          color: AppColors.grey600,
                         ),
                       ),
                     ),
@@ -119,7 +120,7 @@ class EsimSuccessView extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: AppColors.white,
                       ),
                     ),
                   ),
@@ -148,7 +149,7 @@ class EsimSuccessView extends StatelessWidget {
           height: 28,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: Colors.grey[200],
+            color: AppColors.grey200,
             shape: BoxShape.circle,
           ),
           child: Text(
@@ -156,7 +157,7 @@ class EsimSuccessView extends StatelessWidget {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.black87,
             ),
           ),
         ),
@@ -170,7 +171,7 @@ class EsimSuccessView extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+                  color: AppColors.black87,
                 ),
               ),
               const SizedBox(height: 4),
@@ -178,7 +179,7 @@ class EsimSuccessView extends StatelessWidget {
                 description,
                 style: const TextStyle(
                   fontSize: 14,
-                  color: Color(0xFF757575),
+                  color: AppColors.textGrey,
                   height: 1.4,
                 ),
               ),

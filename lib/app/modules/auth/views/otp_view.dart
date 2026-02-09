@@ -14,14 +14,14 @@ class OtpView extends GetView<OtpController> {
     Get.put(OtpController());
 
     return Scaffold(
-      backgroundColor: R.theme.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: R.theme.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         centerTitle: true,
         title: MyText(
           text: 'Sign in',
-          color: R.theme.black,
+          color: AppColors.black,
           fontWeight: FontWeight.bold,
           fontSize: 18,
         ),
@@ -37,7 +37,7 @@ class OtpView extends GetView<OtpController> {
               text: 'Verify your account',
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.black87,
             ),
 
             12.sbh,
@@ -46,7 +46,7 @@ class OtpView extends GetView<OtpController> {
               text:
                   'Enter The 4-Digit Code Sent To Your Registered Phone Number For Your ESIM Setup And Global Connectivity.',
               fontSize: 14,
-              color: R.theme.grey,
+              color: AppColors.grey,
               height: 1.6,
               textAlign: TextAlign.start,
               softWrap: true,
@@ -67,7 +67,7 @@ class OtpView extends GetView<OtpController> {
               child: ElevatedButton(
                 onPressed: () => controller.verifyCode(),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF4A3277),
+                  backgroundColor: AppColors.brandPurple,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -76,7 +76,7 @@ class OtpView extends GetView<OtpController> {
                 child: MyText(
                   text: 'Verify',
                   fontSize: 18,
-                  color: R.theme.white,
+                  color: AppColors.white,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -119,12 +119,12 @@ class OtpView extends GetView<OtpController> {
         height: 60,
         decoration: BoxDecoration(
           // F7F8F9 is correct, but E8ECF4 for the border matches the login inputs
-          color: const Color(0xFFF7F8F9),
+          color: AppColors.inputFill,
           borderRadius: BorderRadius.circular(
             15,
           ), // Softer, more modern corners
           border: Border.all(
-            color: hasValue ? const Color(0xFF4A3277) : const Color(0xFFE8ECF4),
+            color: hasValue ? AppColors.brandPurple : AppColors.dividerLight,
             width: hasValue ? 2.0 : 1.0, // Thicker border when active
           ),
         ),
@@ -149,7 +149,7 @@ class OtpView extends GetView<OtpController> {
             style: const TextStyle(
               fontSize: 26,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF1E232C),
+              color: AppColors.textSlate,
             ),
             keyboardType: TextInputType.number,
             // cursorColor: const Color(0xFF4A3277), // Match brand color

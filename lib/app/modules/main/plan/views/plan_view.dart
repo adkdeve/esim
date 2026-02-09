@@ -10,25 +10,25 @@ class PlanView extends GetView<PlanController> {
 
   @override
   Widget build(BuildContext context) {
-    const Color deepPurple = Color(0xFF4A3277);
+    const Color deepPurple = AppColors.brandPurple;
 
     return Scaffold(
-      backgroundColor: R.theme.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: R.theme.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         title: const Text(
           "Select Your Plan",
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w700,
-            color: Colors.black,
+            color: AppColors.black,
           ),
         ),
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.help_outline_rounded, color: Colors.black87),
+            icon: const Icon(Icons.help_outline_rounded, color: AppColors.black87),
             onPressed: () {
               // Handle help action
             },
@@ -62,19 +62,19 @@ class PlanView extends GetView<PlanController> {
                         ),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
-                          color: isSelected ? deepPurple : Colors.white,
+                          color: isSelected ? deepPurple : AppColors.white,
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
                             color: isSelected
                                 ? deepPurple
-                                : Colors.grey.shade300,
+                                : AppColors.grey300,
                             width: 1,
                           ),
                         ),
                         child: Text(
                           filterName,
                           style: TextStyle(
-                            color: isSelected ? Colors.white : Colors.black87,
+                            color: isSelected ? AppColors.white : AppColors.black87,
                             fontWeight: FontWeight.w500,
                             fontSize: 14,
                           ),

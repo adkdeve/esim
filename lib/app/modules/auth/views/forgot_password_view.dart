@@ -13,14 +13,14 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
     Get.put(ForgotPasswordController());
 
     return Scaffold(
-      backgroundColor: R.theme.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: R.theme.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         centerTitle: true,
         title: MyText(
           text: 'Sign in',
-          color: R.theme.black,
+          color: AppColors.black,
           fontWeight: FontWeight.bold,
           fontSize: 18,
         ),
@@ -36,7 +36,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
               text: 'Reset Password',
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+              color: AppColors.black87,
             ),
 
             12.sbh,
@@ -45,7 +45,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
               text:
                   'Enter The Email Address Associated With Your ESIM Account And We\'ll Send You A Secure Link To Reset Your Password.',
               fontSize: 14,
-              color: R.theme.grey,
+              color: AppColors.grey,
               height: 1.6,
               textAlign: TextAlign.start,
               softWrap: true,
@@ -69,21 +69,20 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                 child: ElevatedButton(
                   onPressed: canSubmit ? controller.sendOtp : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF4A3277),
-                    disabledBackgroundColor: const Color(
-                      0xFF4A3277,
-                    ).withOpacity(0.5),
+                    backgroundColor: AppColors.brandPurple,
+                    disabledBackgroundColor:
+                        AppColors.brandPurple.withOpacity(0.5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                     elevation: 0,
                   ),
                   child: controller.isLoading.value
-                      ? CircularProgressIndicator(color: R.theme.white)
+                      ? CircularProgressIndicator(color: AppColors.white)
                       : MyText(
                           text: 'Send OTP',
                           fontSize: 16,
-                          color: R.theme.white,
+                          color: AppColors.white,
                           fontWeight: FontWeight.w600,
                         ),
                 ),
@@ -100,12 +99,12 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                 child: RichText(
                   text: TextSpan(
                     text: 'Remember Your Password? ',
-                    style: TextStyle(color: R.theme.grey, fontSize: 14),
+                    style: TextStyle(color: AppColors.grey, fontSize: 14),
                     children: const [
                       TextSpan(
                         text: 'Log In',
                         style: TextStyle(
-                          color: Color(0xFF4A3277),
+                          color: AppColors.brandPurple,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

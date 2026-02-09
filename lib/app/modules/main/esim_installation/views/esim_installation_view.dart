@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../../common/widgets/build_image.dart';
+import '../../../../core/core.dart';
 import '../controllers/esim_installation_controller.dart';
 
 class EsimInstallationView extends GetView<EsimInstallationController> {
@@ -10,19 +11,19 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
 
   @override
   Widget build(BuildContext context) {
-    const Color deepPurple = Color(0xFF4A3277);
-    const Color textGrey = Color(0xFF757575);
-    const Color successGreen = Color(0xFF4CAF50);
+    const Color deepPurple = AppColors.brandPurple;
+    const Color textGrey = AppColors.textGrey;
+    const Color successGreen = AppColors.successGreen;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: AppColors.white,
         elevation: 0,
         title: const Text(
           "eSIM Installation",
           style: TextStyle(
-            color: Colors.black,
+            color: AppColors.black,
             fontWeight: FontWeight.w700,
             fontSize: 18,
           ),
@@ -77,7 +78,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                             child: LinearProgressIndicator(
                               value: controller.installProgress.value,
                               minHeight: 8,
-                              backgroundColor: Colors.grey.shade200,
+                                  backgroundColor: AppColors.grey200,
                               valueColor: const AlwaysStoppedAnimation<Color>(
                                 deepPurple,
                               ),
@@ -102,7 +103,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                                     fontSize: 14,
                                     color:
                                         controller.installProgress.value >= 1.0
-                                        ? Colors.black87
+                                        ? AppColors.black87
                                         : textGrey,
                                     fontWeight:
                                         controller.installProgress.value >= 1.0
@@ -136,7 +137,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                         style: const TextStyle(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: AppColors.black,
                         ),
                       ),
                     ),
@@ -161,7 +162,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                         style: TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
-                          color: Colors.grey[600],
+                          color: AppColors.grey600,
                           letterSpacing: 0.5,
                         ),
                       ),
@@ -222,7 +223,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                                 height: 24,
                                 width: 24,
                                 child: CircularProgressIndicator(
-                                  color: Colors.white,
+                                  color: AppColors.white,
                                   strokeWidth: 2,
                                 ),
                               )
@@ -233,7 +234,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                                  color: AppColors.white,
                                 ),
                               ),
                       ),
@@ -292,7 +293,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
           height: 28,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: Colors.grey[200],
+            color: AppColors.grey200,
             shape: BoxShape.circle,
           ),
           child: Text(
@@ -300,7 +301,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
-              color: Colors.black87,
+                  color: AppColors.black87,
             ),
           ),
         ),
@@ -314,7 +315,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  color: Colors.black87,
+                      color: AppColors.black87,
                 ),
               ),
               const SizedBox(height: 4),
@@ -322,7 +323,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                 description,
                 style: const TextStyle(
                   fontSize: 14,
-                  color: Color(0xFF757575),
+                  color: AppColors.textGrey,
                   height: 1.4,
                 ),
               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/core.dart';
 import '../controllers/top_up_controller.dart';
 
 class TopUpView extends GetView<TopUpController> {
@@ -7,18 +8,18 @@ class TopUpView extends GetView<TopUpController> {
 
   @override
   Widget build(BuildContext context) {
-    const Color deepPurple = Color(0xFF4A3277);
-    const Color bgGrey = Color(0xFFFAFAFA);
+    const Color deepPurple = AppColors.brandPurple;
+    const Color bgGrey = AppColors.backgroundLight;
 
     return Scaffold(
       backgroundColor: bgGrey,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         title: const Text(
           "Top-Up Package",
           style: TextStyle(
-            color: Colors.black,
+            color: AppColors.black,
             fontWeight: FontWeight.w700,
             fontSize: 18,
           ),
@@ -35,7 +36,7 @@ class TopUpView extends GetView<TopUpController> {
               "Active E-Sim",
               style: TextStyle(
                 fontSize: 12,
-                color: Colors.grey,
+                color: AppColors.grey,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -59,7 +60,7 @@ class TopUpView extends GetView<TopUpController> {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFE0E7FF), // Light Lavender
+                    color: AppColors.lavenderPale, // Light Lavender
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Obx(
@@ -68,7 +69,7 @@ class TopUpView extends GetView<TopUpController> {
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xff483073),
+                        color: AppColors.brandPurpleDark,
                       ),
                     ),
                   ),
@@ -84,7 +85,7 @@ class TopUpView extends GetView<TopUpController> {
                 child: LinearProgressIndicator(
                   value: controller.dataPercent,
                   minHeight: 8,
-                  backgroundColor: Colors.grey.shade200,
+                  backgroundColor: AppColors.grey200,
                   valueColor: const AlwaysStoppedAnimation<Color>(deepPurple),
                 ),
               ),
@@ -101,7 +102,7 @@ class TopUpView extends GetView<TopUpController> {
                     "Total ${controller.totalData.value.toInt()} GB Data",
                     style: const TextStyle(
                       fontSize: 11,
-                      color: Color(0xFF757575),
+                      color: AppColors.textGrey,
                     ),
                   ),
                 ),
@@ -110,7 +111,7 @@ class TopUpView extends GetView<TopUpController> {
                     "Expires In ${controller.expiryDays.value} Days",
                     style: const TextStyle(
                       fontSize: 11,
-                      color: Color(0xFF757575),
+                      color: AppColors.textGrey,
                     ),
                   ),
                 ),
@@ -134,22 +135,22 @@ class TopUpView extends GetView<TopUpController> {
   }
 
   Widget _buildPackageCard(Map<String, String> pkg) {
-    const Color deepPurple = Color(0xFF4A3277);
+    const Color deepPurple = AppColors.brandPurple;
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.03),
+            color: AppColors.black.withOpacity(0.03),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
         ],
-        border: Border.all(color: Colors.grey.shade100),
+        border: Border.all(color: AppColors.grey100),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +167,7 @@ class TopUpView extends GetView<TopUpController> {
                     pkg["name"]!,
                     style: const TextStyle(
                       fontSize: 13,
-                      color: Color(0xFF424242),
+                      color: AppColors.textGreyDark,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -210,18 +211,18 @@ class TopUpView extends GetView<TopUpController> {
           width: 24,
           height: 24,
           decoration: const BoxDecoration(
-            color: Color(0xFFE0E7FF),
+            color: AppColors.lavenderPale,
             shape: BoxShape.circle,
           ),
           alignment: Alignment.center,
-          child: Icon(icon, size: 14, color: const Color(0xFF483073)),
+          child: Icon(icon, size: 14, color: AppColors.brandPurpleDark),
         ),
         const SizedBox(width: 8),
         Text(
           text,
           style: const TextStyle(
             fontSize: 13,
-            color: Color(0xFF483073),
+            color: AppColors.brandPurpleDark,
             fontWeight: FontWeight.w500,
           ),
         ),

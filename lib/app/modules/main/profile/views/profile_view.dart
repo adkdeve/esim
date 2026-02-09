@@ -1,24 +1,25 @@
 import 'package:esim/app/modules/main/profile/controllers/profile_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/core.dart';
 
 class ProfileView extends GetView<ProfileController> {
   const ProfileView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const Color deepPurple = Color(0xFF4A3277);
-    const Color textGrey = Color(0xFF757575);
+    const Color deepPurple = AppColors.brandPurple;
+    const Color textGrey = AppColors.textGrey;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFAFAFA), // Slightly off-white background
+      backgroundColor: AppColors.backgroundLight, // Slightly off-white background
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
         elevation: 0,
         title: const Text(
           "Account",
           style: TextStyle(
-            color: Colors.black,
+            color: AppColors.black,
             fontWeight: FontWeight.w700,
             fontSize: 18,
           ),
@@ -90,7 +91,7 @@ class ProfileView extends GetView<ProfileController> {
                                   style: const TextStyle(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 15,
-                                    color: Colors.black87,
+                                    color: AppColors.black87,
                                   ),
                                 ),
                               ),
@@ -166,25 +167,25 @@ class ProfileView extends GetView<ProfileController> {
               child: OutlinedButton(
                 onPressed: controller.signOut,
                 style: OutlinedButton.styleFrom(
-                  side: BorderSide(color: Colors.grey.shade300),
+                  side: BorderSide(color: AppColors.grey300),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  backgroundColor: Colors.white,
+                  backgroundColor: AppColors.white,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Icon(
                       Icons.power_settings_new,
-                      color: Colors.redAccent,
+                      color: AppColors.redAccent,
                       size: 20,
                     ),
                     SizedBox(width: 8),
                     Text(
                       "Sign Out",
                       style: TextStyle(
-                        color: Colors.redAccent,
+                        color: AppColors.redAccent,
                         fontWeight: FontWeight.w600,
                         fontSize: 15,
                       ),
@@ -201,7 +202,7 @@ class ProfileView extends GetView<ProfileController> {
               "ESIM GLOBAL CONNECTIVITY",
               style: TextStyle(
                 fontSize: 10,
-                color: Colors.grey,
+                color: AppColors.grey,
                 letterSpacing: 0.5,
               ),
             ),
@@ -209,7 +210,7 @@ class ProfileView extends GetView<ProfileController> {
             Obx(
               () => Text(
                 "Version ${controller.appVersion.value}",
-                style: const TextStyle(fontSize: 10, color: Colors.grey),
+                style: const TextStyle(fontSize: 10, color: AppColors.grey),
               ),
             ),
 
@@ -225,16 +226,16 @@ class ProfileView extends GetView<ProfileController> {
 
   BoxDecoration _cardDecoration() {
     return BoxDecoration(
-      color: Colors.white,
+      color: AppColors.white,
       borderRadius: BorderRadius.circular(16),
       boxShadow: [
         BoxShadow(
-          color: Colors.black.withOpacity(0.03),
+          color: AppColors.black.withOpacity(0.03),
           blurRadius: 10,
           offset: const Offset(0, 4),
         ),
       ],
-      border: Border.all(color: Colors.grey.shade100),
+      border: Border.all(color: AppColors.grey100),
     );
   }
 
@@ -246,7 +247,7 @@ class ProfileView extends GetView<ProfileController> {
         style: const TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w500,
-          color: Color(0xFF424242), // Darker grey for legibility
+          color: AppColors.textGreyDark, // Darker grey for legibility
         ),
       ),
     );
@@ -259,7 +260,7 @@ class ProfileView extends GetView<ProfileController> {
         style: const TextStyle(
           fontSize: 15,
           fontWeight: FontWeight.w500,
-          color: Colors.black87,
+          color: AppColors.black87,
         ),
       ),
       trailing: Row(
@@ -268,13 +269,13 @@ class ProfileView extends GetView<ProfileController> {
           if (trailingText != null)
             Text(
               trailingText,
-              style: const TextStyle(fontSize: 14, color: Color(0xFF757575)),
+              style: const TextStyle(fontSize: 14, color: AppColors.textGrey),
             ),
           if (trailingText != null) const SizedBox(width: 8),
           const Icon(
             Icons.arrow_forward_ios,
             size: 14,
-            color: Color(0xFFBDBDBD),
+            color: AppColors.textDisabled,
           ),
         ],
       ),

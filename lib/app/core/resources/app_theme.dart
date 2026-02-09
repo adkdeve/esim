@@ -2,6 +2,57 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+class AppColors {
+  static const Color brandPurple = Color(0xFF4A3277);
+  static const Color brandPurpleDark = Color(0xFF483073);
+  static const Color lavenderLight = Color(0xFFE8DEF8);
+  static const Color lavenderPale = Color(0xFFE0E7FF);
+  static const Color softPurple = Color(0xFFBFAEE3);
+  static const Color blueLight = Color(0xFFE2E6FF);
+  static const Color pinkLight = Color(0xFFFFE5EA);
+  static const Color greenLight = Color(0xFFE0F7E6);
+  static const Color bluePale = Color(0xFFDFF1FF);
+  static const Color yellowPale = Color(0xFFFFF7DB);
+  static const Color badgeGreen = Color(0xFF43A047);
+  static const Color successGreen = Color(0xFF4CAF50);
+  static const Color dangerRed = Color(0xFFFF3B30);
+
+  static const Color textDark = Color(0xFF1D1B20);
+  static const Color textMuted = Color(0xFF49454F);
+  static const Color textPurpleMuted = Color(0xFF5E4B8A);
+  static const Color textSlate = Color(0xFF1E232C);
+  static const Color textMediumGrey = Color(0xFF7D7D7D);
+  static const Color textGrey = Color(0xFF757575);
+  static const Color textGreyDark = Color(0xFF424242);
+  static const Color textDisabled = Color(0xFFBDBDBD);
+
+  static const Color inputFill = Color(0xFFF7F8F9);
+  static const Color dividerLight = Color(0xFFE8ECF4);
+  static const Color backgroundLight = Color(0xFFFAFAFA);
+  static const Color backgroundAlt = Color(0xFFF9F9F9);
+
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color black = Color(0xFF000000);
+  static const Color black87 = Color(0xDD000000);
+  static const Color black54 = Color(0x8A000000);
+  static const Color white70 = Color(0xB3FFFFFF);
+  static const Color white60 = Color(0x99FFFFFF);
+  static const Color transparent = Color(0x00000000);
+
+  static const Color grey = Color(0xFF9E9E9E);
+  static const Color grey100 = Color(0xFFF5F5F5);
+  static const Color grey200 = Color(0xFFEEEEEE);
+  static const Color grey300 = Color(0xFFE0E0E0);
+  static const Color grey400 = Color(0xFFBDBDBD);
+  static const Color grey600 = Color(0xFF757575);
+  static const Color grey800 = Color(0xFF424242);
+
+  static const Color blue = Color(0xFF2196F3);
+  static const Color blueAccent = Color(0xFF448AFF);
+  static const Color red = Color(0xFFF44336);
+  static const Color redAccent = Color(0xFFFF5252);
+}
+
 class AppThemeData {
   static final AppThemeData _instance = AppThemeData._internal();
 

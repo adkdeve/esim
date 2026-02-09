@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import '../../../core/core.dart';
 import '../controllers/onboarding_controller.dart';
 
 class OnboardingView extends GetView<OnboardingController> {
@@ -30,9 +31,9 @@ class OnboardingView extends GetView<OnboardingController> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    const Color(0xFF4A3277).withOpacity(0.8),
-                    const Color(0xFF4A3277).withOpacity(0.4),
-                    Colors.black.withOpacity(0.8),
+                    AppColors.brandPurple.withOpacity(0.8),
+                    AppColors.brandPurple.withOpacity(0.4),
+                    AppColors.black.withOpacity(0.8),
                   ],
                 ),
               ),
@@ -48,7 +49,7 @@ class OnboardingView extends GetView<OnboardingController> {
                     const Text(
                       'Global eSIM',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
                       ),
@@ -60,7 +61,7 @@ class OnboardingView extends GetView<OnboardingController> {
                       'Connect\nEverywhere,simply.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white,
+                        color: AppColors.white,
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
                         height: 1.1,
@@ -70,7 +71,7 @@ class OnboardingView extends GetView<OnboardingController> {
                     const Text(
                       'The Next Generation Of Global Connectivity\nIn Your Pocket.',
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                      style: TextStyle(color: AppColors.white70, fontSize: 14),
                     ),
                     const Spacer(flex: 1),
 
@@ -99,7 +100,7 @@ class OnboardingView extends GetView<OnboardingController> {
                       child: ElevatedButton(
                         onPressed: () => controller.navigateToLogin(),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF4A3277),
+                          backgroundColor: AppColors.brandPurple,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30),
                           ),
@@ -108,7 +109,7 @@ class OnboardingView extends GetView<OnboardingController> {
                           'Get Started',
                           style: TextStyle(
                             fontSize: 18,
-                            color: Colors.white,
+                            color: AppColors.white,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -131,10 +132,10 @@ class OnboardingView extends GetView<OnboardingController> {
         Container(
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.2),
+            color: AppColors.white.withOpacity(0.2),
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.public, color: Colors.white, size: 20),
+          child: const Icon(Icons.public, color: AppColors.white, size: 20),
         ),
         const SizedBox(width: 16),
         Expanded(
@@ -146,7 +147,7 @@ class OnboardingView extends GetView<OnboardingController> {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                  color: Colors.white,
+                  color: AppColors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
                 ),
@@ -155,7 +156,7 @@ class OnboardingView extends GetView<OnboardingController> {
                 subtitle,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: const TextStyle(color: Colors.white60, fontSize: 13),
+                style: const TextStyle(color: AppColors.white60, fontSize: 13),
               ),
             ],
           ),

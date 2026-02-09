@@ -11,10 +11,10 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     // Brand Colors
-    const Color deepPurple = Color(0xFF4A3277);
+    const Color deepPurple = AppColors.brandPurple;
 
     return Scaffold(
-      backgroundColor: R.theme.white,
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 24.0),
@@ -34,7 +34,7 @@ class HomeView extends GetView<HomeController> {
                           style: const TextStyle(
                             fontSize: 26,
                             fontWeight: FontWeight.w800,
-                            color: Color(0xFF1D1B20),
+                            color: AppColors.textDark,
                           ),
                         ),
                       ),
@@ -43,7 +43,7 @@ class HomeView extends GetView<HomeController> {
                         'Welcome back to 1 Global',
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.black54,
+                          color: AppColors.black54,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -66,7 +66,7 @@ class HomeView extends GetView<HomeController> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFBFAEE3), // Soft Purple from image
+                  color: AppColors.softPurple, // Soft Purple from image
                   borderRadius: BorderRadius.circular(24),
                 ),
                 child: Column(
@@ -99,13 +99,13 @@ class HomeView extends GetView<HomeController> {
                             vertical: 4,
                           ),
                           decoration: BoxDecoration(
-                            color: const Color(0xFF43A047), // Green Badge
+                            color: AppColors.badgeGreen, // Green Badge
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Text(
                             "Active",
                             style: TextStyle(
-                              color: Colors.white,
+                              color: AppColors.white,
                               fontSize: 11,
                               fontWeight: FontWeight.bold,
                             ),
@@ -116,7 +116,7 @@ class HomeView extends GetView<HomeController> {
                     const SizedBox(height: 16),
                     const Text(
                       "Assigned Number",
-                      style: TextStyle(color: Color(0xFF5E4B8A), fontSize: 13),
+                      style: TextStyle(color: AppColors.textPurpleMuted, fontSize: 13),
                     ),
                     const SizedBox(height: 4),
                     Obx(
@@ -145,8 +145,8 @@ class HomeView extends GetView<HomeController> {
                       title: "Data",
                       value: "4.2GB left",
                       percent: 0.23,
-                      color: const Color(0xFFE2E6FF), // Light Blue
-                      progressColor: const Color(0xFF4A3277),
+                      color: AppColors.blueLight, // Light Blue
+                      progressColor: AppColors.brandPurple,
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -155,8 +155,8 @@ class HomeView extends GetView<HomeController> {
                       title: "Minutes",
                       value: "120 min left",
                       percent: 0.40,
-                      color: const Color(0xFFFFE5EA), // Light Pink
-                      progressColor: const Color(0xFF4A3277),
+                      color: AppColors.pinkLight, // Light Pink
+                      progressColor: AppColors.brandPurple,
                     ),
                   ),
                 ],
@@ -171,8 +171,8 @@ class HomeView extends GetView<HomeController> {
                       title: "SMS",
                       value: "10 SMS left",
                       percent: 0.95,
-                      color: const Color(0xFFE0F7E6), // Light Green
-                      progressColor: const Color(0xFF4A3277),
+                      color: AppColors.greenLight, // Light Green
+                      progressColor: AppColors.brandPurple,
                     ),
                   ),
                   const SizedBox(width: 16),
@@ -183,14 +183,14 @@ class HomeView extends GetView<HomeController> {
                         _actionButton(
                           icon: Icons.settings_suggest_outlined,
                           label: "Plan Manage",
-                          color: const Color(0xFFDFF1FF),
+                          color: AppColors.bluePale,
                           onTap: () => Get.toNamed(Routes.PLAN_MANAGER),
                         ),
                         const SizedBox(height: 16),
                         _actionButton(
                           icon: Icons.add,
                           label: "Add Top Up",
-                          color: const Color(0xFFFFF7DB),
+                          color: AppColors.yellowPale,
                           onTap: () => Get.toNamed(Routes.TOP_UP),
                         ),
                       ],
@@ -207,7 +207,7 @@ class HomeView extends GetView<HomeController> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1D1B20),
+                  color: AppColors.textDark,
                 ),
               ),
               const SizedBox(height: 16),
@@ -236,11 +236,11 @@ class HomeView extends GetView<HomeController> {
                         6,
                       ), // Tight left padding for flag
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: AppColors.white,
                         borderRadius: BorderRadius.circular(
                           50,
                         ), // Stadium/Pill shape
-                        border: Border.all(color: Colors.grey.shade300),
+                        border: Border.all(color: AppColors.grey300),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
@@ -265,7 +265,7 @@ class HomeView extends GetView<HomeController> {
                             style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
-                              color: Color(0xFF49454F),
+                              color: AppColors.textMuted,
                             ),
                           ),
                         ],
@@ -283,7 +283,7 @@ class HomeView extends GetView<HomeController> {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1D1B20),
+                  color: AppColors.textDark,
                 ),
               ),
               const SizedBox(height: 16),
@@ -327,10 +327,10 @@ class HomeView extends GetView<HomeController> {
       width: 40,
       height: 40,
       decoration: BoxDecoration(
-        color: Colors.grey.shade100,
+        color: AppColors.grey100,
         shape: BoxShape.circle,
       ),
-      child: Icon(icon, color: Colors.black87, size: 22),
+      child: Icon(icon, color: AppColors.black87, size: 22),
     );
   }
 
@@ -358,7 +358,7 @@ class HomeView extends GetView<HomeController> {
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF1D1B20),
+                  color: AppColors.textDark,
                 ),
               ),
               const SizedBox(height: 4),
@@ -367,7 +367,7 @@ class HomeView extends GetView<HomeController> {
                 style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF1D1B20),
+                  color: AppColors.textDark,
                 ),
               ),
             ],
@@ -382,7 +382,7 @@ class HomeView extends GetView<HomeController> {
                 CircularProgressIndicator(
                   value: percent,
                   strokeWidth: 6,
-                  backgroundColor: Colors.white.withOpacity(0.5),
+                  backgroundColor: AppColors.white.withOpacity(0.5),
                   color: progressColor,
                 ),
                 Center(
@@ -421,14 +421,14 @@ class HomeView extends GetView<HomeController> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 20, color: const Color(0xFF1D1B20)),
+            Icon(icon, size: 20, color: AppColors.textDark),
             const SizedBox(width: 8),
             Text(
               label,
               style: const TextStyle(
                 fontSize: 13,
                 fontWeight: FontWeight.w600,
-                color: Color(0xFF1D1B20),
+                color: AppColors.textDark,
               ),
             ),
           ],

@@ -2,6 +2,7 @@ import 'package:esim/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import '../../../core/core.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _WelcomeViewState extends State<WelcomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.white,
       body: SafeArea(
         child: SizedBox(
           width: double.infinity,
@@ -49,7 +50,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                   Text(
                     'Welcome back,',
                     style: TextStyle(
-                      color: Color(0xFF4A3277), // Brand Deep Purple
+                      color: AppColors.brandPurple, // Brand Deep Purple
                       fontSize: 32,
                       fontWeight: FontWeight.w800, // Extra Bold
                       letterSpacing: -0.5,
@@ -59,7 +60,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                   Text(
                     'Alex!',
                     style: TextStyle(
-                      color: Color(0xFF4A3277),
+                      color: AppColors.brandPurple,
                       fontSize: 32,
                       fontWeight: FontWeight.w800,
                       letterSpacing: -0.5,
@@ -75,7 +76,7 @@ class _WelcomeViewState extends State<WelcomeView> {
               const Text(
                 'Preparing Your Global Connection...',
                 style: TextStyle(
-                  color: Color(0xFF7D7D7D), // Medium Grey
+                  color: AppColors.textMediumGrey, // Medium Grey
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   letterSpacing: 0.2,
