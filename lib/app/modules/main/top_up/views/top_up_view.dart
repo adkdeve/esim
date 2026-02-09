@@ -59,7 +59,7 @@ class TopUpView extends GetView<TopUpController> {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFE8DEF8), // Light Lavender
+                    color: const Color(0xFFE0E7FF), // Light Lavender
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Obx(
@@ -68,7 +68,7 @@ class TopUpView extends GetView<TopUpController> {
                       style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
-                        color: deepPurple,
+                        color: Color(0xff483073),
                       ),
                     ),
                   ),
@@ -206,17 +206,22 @@ class TopUpView extends GetView<TopUpController> {
   Widget _buildFeatureRow(IconData icon, String text) {
     return Row(
       children: [
-        Icon(
-          icon,
-          size: 16,
-          color: const Color(0xFF79747E),
-        ), // Muted icon color
+        Container(
+          width: 24,
+          height: 24,
+          decoration: const BoxDecoration(
+            color: Color(0xFFE0E7FF),
+            shape: BoxShape.circle,
+          ),
+          alignment: Alignment.center,
+          child: Icon(icon, size: 14, color: const Color(0xFF483073)),
+        ),
         const SizedBox(width: 8),
         Text(
           text,
           style: const TextStyle(
             fontSize: 13,
-            color: Color(0xFF49454F),
+            color: Color(0xFF483073),
             fontWeight: FontWeight.w500,
           ),
         ),
