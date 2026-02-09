@@ -1,0 +1,7 @@
+import 'app_images.dart';
+import 'app_theme.dart';
+
+class R {
+  static AppThemeData get theme => AppThemeData();
+  static AppImages get image => AppImages();
+}

@@ -1,0 +1,451 @@
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../controllers/checkout_controller.dart';
+
+class CheckoutView extends GetView<CheckoutController> {
+  const CheckoutView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const Color deepPurple = Color(0xFF4A3277);
+    const Color bgGrey = Color(0xFFF9F9F9);
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Get.back(),
+        ),
+        title: const Text(
+          "Checkout",
+          style: TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w700,
+            fontSize: 18,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Column(
+        children: [
+          // SCROLLABLE CONTENT
+          Expanded(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // --- 1. PLAN SUMMARY CARD ---
+                  Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.05),
+                          blurRadius: 15,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
+                      border: Border.all(color: Colors.grey.shade100),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Global",
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                        const SizedBox(height: 4),
+                        const Text(
+                          "World Explorer",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: deepPurple,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+
+                        // Updated Features with Circle Backgrounds
+                        _buildFeatureRow(Icons.storage, "20GB High-Speed Data"),
+                        const SizedBox(height: 12),
+                        _buildFeatureRow(
+                          Icons.phone_outlined,
+                          "100 M Global Voice",
+                        ),
+                        const SizedBox(height: 12),
+                        _buildFeatureRow(Icons.message_outlined, "100 SMS"),
+
+                        const SizedBox(height: 16),
+                        Text(
+                          "Global Coverage 150+ Country",
+                          style: TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.grey[600],
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        const Divider(),
+                        const SizedBox(height: 12),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Renewal Date",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  "24th Of Every Month",
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey[800],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: const Text(
+                                "Change",
+                                style: TextStyle(
+                                  color: deepPurple,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 32),
+
+                  // --- 2. PAYMENT METHOD HEADER ---
+                  const Text(
+                    "Payment Method",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // --- 3. PAYMENT OPTIONS ---
+                  Obx(
+                    () => Column(
+                      children: [
+                        _buildPaymentOption(
+                          index: 0,
+                          icon: Icons.apple,
+                          label: "Apple pay",
+                          iconColor: Colors.black,
+                        ),
+                        const SizedBox(height: 12),
+                        _buildPaymentOption(
+                          index: 1,
+                          icon: Icons.payment,
+                          label: "Google Pay",
+                          iconColor: Colors.blue,
+                        ),
+                        const SizedBox(height: 12),
+                        _buildPaymentOption(
+                          index: 2,
+                          icon: Icons.credit_card,
+                          label: ".......4242",
+                          subLabel: "EXPIRES 12/26",
+                          iconColor: Colors.blueAccent,
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  // Add New Method Button
+                  Container(
+                    width: double.infinity,
+                    height: 54,
+                    decoration: BoxDecoration(
+                      color: bgGrey,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: Colors.grey.shade400,
+                        style: BorderStyle.solid,
+                        width: 1,
+                      ),
+                    ),
+                    alignment: Alignment.center,
+                    child: Text(
+                      "Add New Payment Getaway",
+                      style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+          // --- 4. FOOTER ---
+          Container(
+            padding: const EdgeInsets.all(24),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.05),
+                  blurRadius: 10,
+                  offset: const Offset(0, -5),
+                ),
+              ],
+            ),
+            child: SafeArea(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    "Total To Pay Today",
+                    style: TextStyle(fontSize: 14, color: Colors.black87),
+                  ),
+                  const SizedBox(height: 4),
+                  RichText(
+                    text: const TextSpan(
+                      text: "\$45.00",
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: deepPurple,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "/Month",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.normal,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // Confirm Button
+                  SizedBox(
+                    width: double.infinity,
+                    height: 56,
+                    child: ElevatedButton(
+                      onPressed: controller.confirmSubscription,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: deepPurple,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        elevation: 0,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            "Confirm & Subscribe",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(width: 8),
+                          Icon(
+                            Icons.arrow_forward,
+                            size: 20,
+                            color: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  // Legal Disclaimer with Hyperlink
+                  Center(
+                    child: RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        style: const TextStyle(
+                          fontSize: 11,
+                          color: Colors.grey,
+                          height: 1.4,
+                          fontFamily: 'Roboto',
+                        ),
+                        children: [
+                          const TextSpan(
+                            text:
+                                "Subscription starts today. Cancel anytime in settings.\nBy continuing, you agree to our ",
+                          ),
+                          TextSpan(
+                            text: "Terms of Service.",
+                            style: const TextStyle(
+                              color: deepPurple,
+                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.w600,
+                            ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                Get.to(() => const TermsView());
+                              },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // --- UPDATED HELPER WIDGET FOR ICONS ---
+  Widget _buildFeatureRow(IconData icon, String text) {
+    const Color deepPurple = Color(0xFF4A3277);
+
+    return Row(
+      children: [
+        Container(
+          height: 36,
+          width: 36,
+          decoration: BoxDecoration(
+            // Light purple circle background
+            color: deepPurple.withOpacity(0.08),
+            shape: BoxShape.circle,
+          ),
+          child: Icon(icon, size: 18, color: deepPurple), // Icon matches theme
+        ),
+        const SizedBox(width: 12),
+        Text(
+          text,
+          style: const TextStyle(
+            fontSize: 14,
+            color: Color(0xFF49454F),
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPaymentOption({
+    required int index,
+    required IconData icon,
+    required String label,
+    required Color iconColor,
+    String? subLabel,
+  }) {
+    bool isSelected = controller.selectedPaymentMethod.value == index;
+    const Color deepPurple = Color(0xFF4A3277);
+
+    return GestureDetector(
+      onTap: () => controller.selectPaymentMethod(index),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        decoration: BoxDecoration(
+          color: const Color(0xFFF5F5F5),
+          borderRadius: BorderRadius.circular(12),
+          border: isSelected
+              ? Border.all(color: deepPurple, width: 1.5)
+              : Border.all(color: Colors.transparent),
+        ),
+        child: Row(
+          children: [
+            Icon(icon, color: iconColor, size: 24),
+            const SizedBox(width: 16),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
+                    color: Colors.black87,
+                  ),
+                ),
+                if (subLabel != null)
+                  Text(
+                    subLabel,
+                    style: TextStyle(fontSize: 11, color: Colors.grey[600]),
+                  ),
+              ],
+            ),
+            const Spacer(),
+            Container(
+              height: 20,
+              width: 20,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: isSelected ? deepPurple : Colors.grey,
+                  width: 2,
+                ),
+              ),
+              child: isSelected
+                  ? Center(
+                      child: Container(
+                        height: 10,
+                        width: 10,
+                        decoration: const BoxDecoration(
+                          color: deepPurple,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    )
+                  : null,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TermsView extends StatelessWidget {
+  const TermsView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Terms of Service",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 1,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () => Get.back(),
+        ),
+      ),
+      body: const Center(child: Text("Terms and conditions content...")),
+    );
+  }
+}

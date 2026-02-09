@@ -1,0 +1,66 @@
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'dart:convert';
+import '../../core/core.dart';
+import '../models/user_model.dart';
+
+class AuthService {
+  static final String _userKey = MyConstants.userData;
+  static final String _passwordKey = MyConstants.passwordKey;
+  static final String _tokenKey = MyConstants.token;
+  static final String _skipKey = MyConstants.skipKey;
+
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
+
+  /// Save user info and token securely
+  Future<void> saveUserData(String password,Map<String, dynamic> user, String token) async {
+    final userJson = jsonEncode(user);
+    await _storage.write(key: _userKey, value: userJson);
+    await _storage.write(key: _passwordKey, value: password);
+    await _storage.write(key: _tokenKey, value: token);
+  }
+  /// Save skip info
+  Future<void> saveSkip(String skip) async {
+    await _storage.write(key: _skipKey, value: skip);
+  }
+
+  /// Get skip
+  Future<String?> getToken() async {
+    return await _storage.read(key: _tokenKey);
+  }
+
+  /// Get user data as Map
+  Future<UserModel?> getUserData() async {
+    final userJson = await _storage.read(key: _userKey);
+    if (userJson != null) {
+      final map = jsonDecode(userJson);
+      return UserModel.fromJson(map);
+    }
+    return null;
+  }
+
+  /// Get auth token
+  Future<String?> getSkip() async {
+    return await _storage.read(key: _skipKey);
+  }
+
+  /// Get auth token
+  Future<String?> getPassword() async {
+    return await _storage.read(key: _passwordKey);
+  }
+
+  /// Check if user is logged in
+  Future<bool> isLoggedIn() async {
+    final token = await getToken();
+    return token != null;
+  }
+
+  Future<void> deleteSkip() async {
+    return await _storage.delete(key: _skipKey);
+  }
+
+  /// Logout user (clear secure storage)
+  Future<void> logout() async {
+    await _storage.deleteAll();
+    // await firebaseSignOut();
+  }
+}

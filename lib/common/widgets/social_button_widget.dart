@@ -1,0 +1,42 @@
+import 'package:flutter/material.dart';
+import '../../app/core/extensions/num_extensions.dart';
+import 'build_image.dart';
+import 'my_text.dart';
+
+class SocialButton extends StatelessWidget {
+  final dynamic icon;
+  final String text;
+  final Color backgroundColor;
+  final Color textColor;
+  final Color? borderColor;
+
+  const SocialButton({
+    Key? key,
+    required this.icon,
+    required this.text,
+    required this.backgroundColor,
+    required this.textColor,
+    this.borderColor,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: 6.vertical,
+      width: double.infinity,
+      child: OutlinedButton.icon(
+        onPressed: () {},
+        icon: buildImage(icon, width: 24, context: context),
+        label: MyText(text: text, color: textColor, fontSize: 16),
+        style: OutlinedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          side: BorderSide(color: borderColor ?? backgroundColor),
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+        ),
+      ),
+    );
+  }
+}
