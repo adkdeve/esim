@@ -12,7 +12,8 @@ class ProfileView extends GetView<ProfileController> {
     const Color textGrey = AppColors.textGrey;
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundLight, // Slightly off-white background
+      backgroundColor:
+          AppColors.backgroundLight, // Slightly off-white background
       appBar: AppBar(
         backgroundColor: AppColors.transparent,
         elevation: 0,

@@ -78,7 +78,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                             child: LinearProgressIndicator(
                               value: controller.installProgress.value,
                               minHeight: 8,
-                                  backgroundColor: AppColors.grey200,
+                              backgroundColor: AppColors.grey200,
                               valueColor: const AlwaysStoppedAnimation<Color>(
                                 deepPurple,
                               ),
@@ -301,7 +301,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
-                  color: AppColors.black87,
+              color: AppColors.black87,
             ),
           ),
         ),
@@ -315,7 +315,7 @@ class EsimInstallationView extends GetView<EsimInstallationController> {
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
-                      color: AppColors.black87,
+                  color: AppColors.black87,
                 ),
               ),
               const SizedBox(height: 4),

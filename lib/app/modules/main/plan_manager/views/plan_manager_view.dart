@@ -150,7 +150,10 @@ class PlanManagerView extends GetView<PlanManagerController> {
                     children: [
                       const Text(
                         "EID Status",
-                        style: TextStyle(fontSize: 15, color: AppColors.black87),
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: AppColors.black87,
+                        ),
                       ),
                       Row(
                         children: const [
@@ -306,7 +309,10 @@ class PlanManagerView extends GetView<PlanManagerController> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(key, style: const TextStyle(fontSize: 15, color: AppColors.black87)),
+        Text(
+          key,
+          style: const TextStyle(fontSize: 15, color: AppColors.black87),
+        ),
         Text(
           value,
           style: const TextStyle(

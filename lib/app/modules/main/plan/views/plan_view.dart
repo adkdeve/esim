@@ -28,7 +28,10 @@ class PlanView extends GetView<PlanController> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.help_outline_rounded, color: AppColors.black87),
+            icon: const Icon(
+              Icons.help_outline_rounded,
+              color: AppColors.black87,
+            ),
             onPressed: () {
               // Handle help action
             },
@@ -65,16 +68,16 @@ class PlanView extends GetView<PlanController> {
                           color: isSelected ? deepPurple : AppColors.white,
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
-                            color: isSelected
-                                ? deepPurple
-                                : AppColors.grey300,
+                            color: isSelected ? deepPurple : AppColors.grey300,
                             width: 1,
                           ),
                         ),
                         child: Text(
                           filterName,
                           style: TextStyle(
-                            color: isSelected ? AppColors.white : AppColors.black87,
+                            color: isSelected
+                                ? AppColors.white
+                                : AppColors.black87,
                             fontWeight: FontWeight.w500,
                             fontSize: 14,
                           ),

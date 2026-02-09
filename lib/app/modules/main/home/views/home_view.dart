@@ -116,7 +116,10 @@ class HomeView extends GetView<HomeController> {
                     const SizedBox(height: 16),
                     const Text(
                       "Assigned Number",
-                      style: TextStyle(color: AppColors.textPurpleMuted, fontSize: 13),
+                      style: TextStyle(
+                        color: AppColors.textPurpleMuted,
+                        fontSize: 13,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     Obx(

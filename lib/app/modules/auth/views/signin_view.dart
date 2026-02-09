@@ -102,8 +102,9 @@ class SigninView extends GetView<SigninController> {
                   onPressed: canSubmit ? controller.login : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.brandPurple,
-                    disabledBackgroundColor:
-                        AppColors.brandPurple.withOpacity(0.5),
+                    disabledBackgroundColor: AppColors.brandPurple.withOpacity(
+                      0.5,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(25),
                     ),
@@ -127,7 +128,11 @@ class SigninView extends GetView<SigninController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 _socialButton(Icons.facebook, AppColors.blue),
-                _socialButton(Icons.g_mobiledata, AppColors.red, isGoogle: true),
+                _socialButton(
+                  Icons.g_mobiledata,
+                  AppColors.red,
+                  isGoogle: true,
+                ),
                 _socialButton(Icons.apple, AppColors.black),
               ],
             ),

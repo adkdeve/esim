@@ -70,8 +70,9 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
                   onPressed: canSubmit ? controller.sendOtp : null,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.brandPurple,
-                    disabledBackgroundColor:
-                        AppColors.brandPurple.withOpacity(0.5),
+                    disabledBackgroundColor: AppColors.brandPurple.withOpacity(
+                      0.5,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),

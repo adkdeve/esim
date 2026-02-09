@@ -121,16 +121,23 @@ class AppThemeData {
 
   // Method to apply system UI style based on theme mode
   void applySystemUIOverlayStyle(ThemeMode themeMode) {
-    if (isDarkMode = WidgetsBinding.instance.window.platformBrightness == Brightness.dark) {
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
-        statusBarColor: color600, // Status bar color for dark theme
-        statusBarIconBrightness: Brightness.light, // Light icons for dark theme
-      ));
+    if (isDarkMode =
+        WidgetsBinding.instance.window.platformBrightness == Brightness.dark) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle.dark.copyWith(
+          statusBarColor: color600, // Status bar color for dark theme
+          statusBarIconBrightness:
+              Brightness.light, // Light icons for dark theme
+        ),
+      );
     } else {
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-        statusBarColor: secondary, // Status bar color for light theme
-        statusBarIconBrightness: Brightness.light, // Dark icons for light theme
-      ));
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle.light.copyWith(
+          statusBarColor: secondary, // Status bar color for light theme
+          statusBarIconBrightness:
+              Brightness.light, // Dark icons for light theme
+        ),
+      );
     }
   }
 
@@ -164,21 +171,23 @@ class AppThemeData {
         backgroundColor: navBackClr,
         type: BottomNavigationBarType.fixed,
       ),
-      textTheme: GoogleFonts.manropeTextTheme(base.textTheme.copyWith(
-        bodyLarge: base.textTheme.bodyLarge!.copyWith(color: colorScheme.onBackground),
-        labelLarge: base.textTheme.labelLarge!.copyWith(color: colorScheme.onPrimary),
-      ),),
+      textTheme: GoogleFonts.manropeTextTheme(
+        base.textTheme.copyWith(
+          bodyLarge: base.textTheme.bodyLarge!.copyWith(
+            color: colorScheme.onBackground,
+          ),
+          labelLarge: base.textTheme.labelLarge!.copyWith(
+            color: colorScheme.onPrimary,
+          ),
+        ),
+      ),
       buttonTheme: base.buttonTheme.copyWith(
         buttonColor: colorScheme.primary,
         textTheme: ButtonTextTheme.primary,
       ),
-      iconTheme: base.iconTheme.copyWith(
-        color: colorScheme.onBackground,
-      ),
+      iconTheme: base.iconTheme.copyWith(color: colorScheme.onBackground),
       inputDecorationTheme: base.inputDecorationTheme.copyWith(
-        hintStyle: GoogleFonts.inter().copyWith(
-          color: textSecondary,
-        ),
+        hintStyle: GoogleFonts.inter().copyWith(color: textSecondary),
         labelStyle: TextStyle(color: colorScheme.onSurface),
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(color: textSecondary),
@@ -207,13 +216,13 @@ class AppThemeData {
         selectionColor: secondary,
         cursorColor: primary,
       ),
-        // switchTheme: SwitchThemeData(
-        //   thumbColor: WidgetStateProperty.all(switchInactiveThumbColor),
-        //   trackColor: WidgetStateProperty.all(switchInactiveTrackColor),
-        //   activeTrackColor: WidgetStateProperty.all(switchActiveTrackColor),
-        //   activeColor: WidgetStateProperty.all(switchActiveColor),
-        // ),
-        //
+      // switchTheme: SwitchThemeData(
+      //   thumbColor: WidgetStateProperty.all(switchInactiveThumbColor),
+      //   trackColor: WidgetStateProperty.all(switchInactiveTrackColor),
+      //   activeTrackColor: WidgetStateProperty.all(switchActiveTrackColor),
+      //   activeColor: WidgetStateProperty.all(switchActiveColor),
+      // ),
+      //
     );
   }
 
@@ -241,23 +250,23 @@ class AppThemeData {
         foregroundColor: white,
       ),
       textTheme: base.textTheme.copyWith(
-        bodyLarge: base.textTheme.bodyLarge!.copyWith(color: colorScheme.onBackground),
-        labelLarge: base.textTheme.labelLarge!.copyWith(color: colorScheme.onPrimary),
+        bodyLarge: base.textTheme.bodyLarge!.copyWith(
+          color: colorScheme.onBackground,
+        ),
+        labelLarge: base.textTheme.labelLarge!.copyWith(
+          color: colorScheme.onPrimary,
+        ),
       ),
       buttonTheme: base.buttonTheme.copyWith(
         buttonColor: colorScheme.primary,
         textTheme: ButtonTextTheme.primary,
       ),
-      iconTheme: base.iconTheme.copyWith(
-        color: colorScheme.onBackground,
-      ),
+      iconTheme: base.iconTheme.copyWith(color: colorScheme.onBackground),
       inputDecorationTheme: base.inputDecorationTheme.copyWith(
         border: OutlineInputBorder(
           borderSide: BorderSide(color: colorScheme.primary),
         ),
-        hintStyle: GoogleFonts.inter().copyWith(
-          color: color400,
-        ),
+        hintStyle: GoogleFonts.inter().copyWith(color: color400),
         // focusedBorder: OutlineInputBorder(
         //   borderSide: BorderSide(color: colorScheme.secondary),
         // ),
